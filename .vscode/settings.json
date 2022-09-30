@@ -5,8 +5,11 @@
         "GitHub",
         "autoload",
         "Autoload",
+        "Autoloading",
+        "W3School",
         "ImageMagic",
-        "fcgi"
+        "fcgi",
+        "htaccess"
     ],
     "spellright.language": [
         "en-US-10-1.",
@@ -16,5 +19,8 @@
         "markdown",
         "latex",
         "plaintext"
+    ],
+    "cSpell.words": [
+        "Autoloading"
     ]
 }

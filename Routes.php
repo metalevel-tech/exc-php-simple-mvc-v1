@@ -1,16 +1,16 @@
 <?php
-// The state of the file at Stage-2-1-Controllers
+// The state of the file at Stage-2-2-Controllers
 
 Route::set('about-us', function() {
-    echo 'About us!';
+    AboutUs::CreateView();
 });
 
 Route::set('contact-us', function() {
-    echo 'Contact us!';
+    ContactUs::CreateView();
 });
 
 Route::set('let-us-go', function() {
-    echo 'Let\'s go!';
+    LetUsGo::CreateView();
 });
 
 ?>
