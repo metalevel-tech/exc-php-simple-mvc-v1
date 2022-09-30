@@ -5,8 +5,8 @@
  */
 
  class Controller {
-    public static function CreateView() {
-        echo 'About us!';
+    public static function CreateView($message) {
+        echo '<h1>'. $message .'</h1>';
     }
  }
 

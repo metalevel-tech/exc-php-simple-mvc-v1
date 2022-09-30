@@ -11,6 +11,18 @@
         "fcgi",
         "htaccess"
     ],
+    "cSpell.words": [
+        "YouTube",
+        "howCode",
+        "GitHub",
+        "autoload",
+        "Autoload",
+        "Autoloading",
+        "W3School",
+        "ImageMagic",
+        "fcgi",
+        "htaccess"
+    ],
     "spellright.language": [
         "en-US-10-1.",
         "en-US-9-0."
@@ -19,8 +31,5 @@
         "markdown",
         "latex",
         "plaintext"
-    ],
-    "cSpell.words": [
-        "Autoloading"
     ]
 }

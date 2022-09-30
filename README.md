@@ -1,15 +1,23 @@
 # PHP Model View Controller (MVC)
 
-Sample example of PHP MVC. It is like a tutorial and follows the tutorial "Simple MVC in PHP" howCode at YouTube (see the references section below), but is updated and compatible with PHP 8.1 also some other features are added. However, despite it is little bit outdated, I strongly recommend you to watch the tutorial ["Simple MVC in PHP"](#references) which just 20 minutes.
+Sample example of PHP MVC. It is like a tutorial and follows the tutorial ["Simple MVC in PHP"](#references) provided by howCode at YouTube, but it is updated and __compatible with PHP 8.1__. Also some other features are added. However, despite it is little bit outdated, I strongly recommend you to watch the tutorial ["Simple MVC in PHP"](#references) which is just 20 minutes long.
 
-The branches are named `Stage-X...` and represent the consequential steps that lead to the final state.
+The branches are named `Stage-X...` and they represent the consequential steps that lead to the final state. In the following sections of this read-me are provided the reverences about certain things I've researched while studying this technique.
+
+## References
+
+* howCode at YouTube: [Simple MVC in PHP (1/4) - Routing](https://youtu.be/DpbUqJcch0Y)
+* howCode at YouTube: [Simple MVC in PHP (2/4) - Classes](https://youtu.be/04aTM01Y3uQ)
+* howCode at YouTube: [Simple MVC in PHP (3/4) - Views](https://youtu.be/aUvfzHHTKJU)
+* howCode at YouTube: [Simple MVC in PHP (4/4) - Databases](https://youtu.be/DpbUqJcch0Y)
+* howCode at GitHub: [how - helper classes](https://github.com/howCodeORG/how)
 
 ## Auto load Classes
 
 `__autoload()` is no longer supported, use `spl_autoload_register()` instead.
 
 ```log
-[Fri Sep 30 13:26:51.015401 2022] [proxy_fcgi:error] [pid 2629300] [client 185.218.64.95:41546] AH01071: Got error 'PHP message: PHP Fatal error:  __autoload() is no longer supported, use spl_autoload_register() instead in /var/www/php-mvc.example.com/index.php on line 16'
+[Fri Sep 30 13:26:51.015401 2022] [proxy_fcgi:error] [pid 2629300] [client 192.168.1.110:41546] AH01071: Got error 'PHP message: PHP Fatal error:  __autoload() is no longer supported, use spl_autoload_register() instead in /var/www/php-mvc.example.com/index.php on line 16'
 ```
 
 The relevant code of [Simple MVC in PHP (1/4) - Routing](https://youtu.be/DpbUqJcch0Y) should be changed to:
@@ -35,11 +43,3 @@ The example provided in the beginning of the tutorial [Simple MVC in PHP (1/4) -
 Explanations, solutions, references:
 
 * Stack Overflow [Note about the `-MultiViews` option](https://stackoverflow.com/a/20685686/6543935)
-
-## References
-
-* howCode at YouTube: [Simple MVC in PHP (1/4) - Routing](https://youtu.be/DpbUqJcch0Y)
-* howCode at YouTube: [Simple MVC in PHP (2/4) - Classes](https://youtu.be/04aTM01Y3uQ)
-* howCode at YouTube: [Simple MVC in PHP (3/4) - Views](https://youtu.be/aUvfzHHTKJU)
-* howCode at YouTube: [Simple MVC in PHP (4/4) - Databases](https://youtu.be/DpbUqJcch0Y)
-* howCode at GitHub: [how - helper classes](https://github.com/howCodeORG/how)
