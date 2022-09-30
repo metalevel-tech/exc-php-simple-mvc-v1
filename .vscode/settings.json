@@ -1,0 +1,20 @@
+{
+    "spellchecker.ignoreWordsList": [
+        "YouTube",
+        "howCode",
+        "GitHub",
+        "autoload",
+        "Autoload",
+        "ImageMagic",
+        "fcgi"
+    ],
+    "spellright.language": [
+        "en-US-10-1.",
+        "en-US-9-0."
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ]
+}
