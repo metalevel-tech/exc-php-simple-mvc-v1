@@ -12,6 +12,33 @@ The branches are named `Stage-X...` and they represent the consequential steps t
 * howCode at YouTube: [Simple MVC in PHP (4/4) - Databases](https://youtu.be/DpbUqJcch0Y)
 * howCode at GitHub: [how - helper classes](https://github.com/howCodeORG/how)
 
+## Create database
+
+In the directory [`resources`](resources/) are available two manual like SQL files. We can suppress the comments and use them as SQL scrips to create or remove the `sample_db` MySQL database used in this tutorial.
+
+```bash
+sed -r '/^(-- |$)/d' sample_db_create.sql | sudo mysql
+sed -r '/^(-- |$)/d' sample_db_remove.sql | sudo mysql
+```
+
+According to the documentation these comments shouldn't make a problem, but in my case the do.
+
+Explanations, solutions, references:
+
+* [MySQL Documentation](https://dev.mysql.com/doc/)
+* MySQL 8.0 Reference Manual: [Creating and Using a Database](https://dev.mysql.com/doc/refman/8.0/en/database-use.html)
+* MySQL 8.0 Reference Manual: [Data Types](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
+* Learn SQL: [An Overview of MySQL Data Types](https://learnsql.com/blog/mysql-data-types/)
+* Stack Overflow: [How much UTF-8 text fits in a MySQL "Text" field?](https://stackoverflow.com/a/4420195/6543935)
+
+## Tweak .htaccess
+
+The example provided in the beginning of the tutorial [Simple MVC in PHP (1/4) - Routing](https://youtu.be/DpbUqJcch0Y) is incomplete, because sometimes we need to change some other options and also to serve some static files and avoid unnecessary additional processing. In the first section of the current [.htaccess](./.htaccess) file some of these requirements are covered.
+
+Explanations, solutions, references:
+
+* Stack Overflow [Note about the `-MultiViews` option](https://stackoverflow.com/a/20685686/6543935)
+
 ## Auto load Classes
 
 `__autoload()` is no longer supported, use `spl_autoload_register()` instead.
@@ -35,11 +62,3 @@ Explanations, solutions, references:
 * Stack Overflow: [How to fix: Cannot redeclare spl_autoload_register()?](https://stackoverflow.com/a/59049684/6543935)
 * Stack Overflow: [How to use spl_autoload() instead of __autoload()](https://stackoverflow.com/a/10687888/6543935)
 * W3School: [PHP `include` and `require` Statements](https://www.w3schools.com/php/php_includes.asp)
-
-## Tweak .htaccess
-
-The example provided in the beginning of the tutorial [Simple MVC in PHP (1/4) - Routing](https://youtu.be/DpbUqJcch0Y) is incomplete, because sometimes we need to change some other options and also to serve some static files and avoid unnecessary additional processing. In the first section of the current [.htaccess](./.htaccess) file some of these requirements are covered.
-
-Explanations, solutions, references:
-
-* Stack Overflow [Note about the `-MultiViews` option](https://stackoverflow.com/a/20685686/6543935)
