@@ -1,16 +1,25 @@
 <?php
-// The state of the file at Stage-2-2-Controllers
+// The state of the file at Stage-3-Views
 
 Route::set('about-us', function() {
-    AboutUs::CreateView('About us!');
+    AboutUs::CreateView('AboutUs');
 });
 
 Route::set('contact-us', function() {
-    ContactUs::CreateView('Contact us!');
+    ContactUs::CreateView('ContactUs');
 });
 
-Route::set('let-us-go', function() {
-    LetUsGo::CreateView('Let\'s go!');
+Route::set('home', function() {
+    Home::CreateView('Home');
+});
+Route::set('index.php', function() {
+    Home::CreateView('Home');
+});
+Route::set('', function() {
+    Home::CreateView('Home');
 });
 
+if (!in_array($_GET['url'], Route::list())) {
+    HTTP404::CreateView('HTTP404');
+}
 ?>

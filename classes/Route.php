@@ -1,5 +1,5 @@
 <?php
-// The state of the file at Stage-2-2-Controllers
+// The state of the file at Stage-3-Views
 class Route {
     public static $valid_routes = [];
 
@@ -8,7 +8,12 @@ class Route {
 
         if ($_GET['url'] == $route) {
             $function->__invoke();
+            die("Unable to connect to given site.");
         }
+    }
+
+    public static function list() {
+        return self::$valid_routes;
     }
 }
 ?>
