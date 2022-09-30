@@ -9,17 +9,15 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-
 <?php
 
 spl_autoload_register(function ($class_name) {
     require_once('classes/'. $class_name .'.php');
 });
 
-require_once ('Routes.php');
+require_once('Routes.php');
 
 echo '<br>' . $_GET['url'];
-
 ?>
 </body>
 </html>
