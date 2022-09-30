@@ -6,6 +6,7 @@
         "autoload",
         "Autoload",
         "Autoloading",
+        "ERRMODE",
         "W3School",
         "ImageMagic",
         "fcgi",
@@ -13,17 +14,19 @@
         "MySQL"
     ],
     "cSpell.words": [
-        "YouTube",
-        "howCode",
-        "GitHub",
         "autoload",
         "Autoload",
         "Autoloading",
-        "W3School",
-        "ImageMagic",
+        "ERRMODE",
         "fcgi",
+        "GitHub",
+        "howCode",
         "htaccess",
-        "MySQL"
+        "ImageMagic",
+        "MySQL",
+        "Pswd",
+        "W3School",
+        "YouTube"
     ],
     "spellright.language": [
         "en-US-10-1.",

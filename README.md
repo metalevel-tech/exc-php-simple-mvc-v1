@@ -11,6 +11,7 @@ The branches are named `Stage-X...` and they represent the consequential steps t
 * howCode at YouTube: [Simple MVC in PHP (3/4) - Views](https://youtu.be/aUvfzHHTKJU)
 * howCode at YouTube: [Simple MVC in PHP (4/4) - Databases](https://youtu.be/DpbUqJcch0Y)
 * howCode at GitHub: [how - helper classes](https://github.com/howCodeORG/how)
+* PHP Documentation: [The PDO class](https://www.php.net/manual/en/class.pdo.php#89019). Represents a connection between PHP and a database server.
 
 ## Create database
 

@@ -1,9 +1,11 @@
 <?php
 // The state of the file at Stage-4-2-Databases
-class Route {
+class Route
+{
     public static $valid_routes = [];
 
-    public static function set($route, $function) {
+    public static function set($route, $function)
+    {
         self::$valid_routes[] = $route;
 
         if ($_GET['url'] == $route) {
@@ -12,8 +14,8 @@ class Route {
         }
     }
 
-    public static function list() {
+    public static function list()
+    {
         return self::$valid_routes;
     }
 }
-?>
