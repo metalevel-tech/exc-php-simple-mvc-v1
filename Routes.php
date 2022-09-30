@@ -1,4 +1,5 @@
 <?php
+// The state of the file at Stage-1-Routing
 
 Route::set('about-us', function() {
     echo 'About us!';

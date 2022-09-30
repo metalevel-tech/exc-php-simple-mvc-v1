@@ -10,6 +10,7 @@
 </head>
 <body>
 <?php
+// The state of the file at Stage-1-Routing
 
 spl_autoload_register(function ($class_name) {
     require_once('classes/'. $class_name .'.php');
@@ -18,6 +19,7 @@ spl_autoload_register(function ($class_name) {
 require_once('Routes.php');
 
 echo '<br>' . $_GET['url'];
+
 ?>
 </body>
 </html>
