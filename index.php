@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php
-// The state of the file at Stage-3-Views
+// The state of the file at Stage-4-1-Databases
 
 spl_autoload_register(function ($class_name) {
     if (file_exists('classes/'. $class_name .'.php')) {

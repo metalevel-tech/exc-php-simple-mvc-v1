@@ -1,4 +1,4 @@
--- sudo mysql
+-- sudo mysql   # or: mysql -u'root' -p
 
 CREATE DATABASE sample_db;
 
