@@ -1,5 +1,7 @@
 <?php
-// The state of the file at Stage-4-2-Databases
+/**
+ * Routes generator.
+ */
 class Route
 {
     public static $valid_routes = [];

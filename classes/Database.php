@@ -1,6 +1,8 @@
 <?php
-// The state of the file at Stage-4-2-Databases
-// class Database extends POD { ... }: https://www.php.net/manual/en/class.pdo.php#89019
+/**
+ * See also, https://www.php.net/manual/en/class.pdo.php#89019
+ * --> class Database extends POD { ... }
+ */
 
 class Database
 {

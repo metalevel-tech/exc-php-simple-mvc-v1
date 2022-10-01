@@ -1,10 +1,8 @@
 <?php
-// The state of the file at Stage-4-2-Databases
 
 echo "<h1>Posts!</h1>";
 
 $result = Posts::QueryPosts(); 
-// print_r($result);
 
 if ($result) {
     $div = "+-------+---------------+-------------------------------+-----------------------------------------------+\n";
