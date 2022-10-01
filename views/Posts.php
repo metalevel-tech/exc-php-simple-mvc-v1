@@ -2,9 +2,9 @@
 
 echo "<h1>Posts!</h1>";
 
-$result = Posts::QueryPosts(); 
+$posts = Posts::QueryPosts(); 
 
-if ($result) {
+if ($posts) {
     $div = "+-------+---------------+-------------------------------+-----------------------------------------------+\n";
     
     echo "<pre>";
@@ -12,7 +12,7 @@ if ($result) {
     echo "| Id\t| Title\t\t| Description\t\t\t| Content\t\t\t\t\t|\n";
     echo $div;
     
-    foreach ($result as $row) {
+    foreach ($posts as $row) {
         $post_id = $row["post_id"];
         $post_title = $row["post_title"];
         $post_descr = $row["post_descr"];

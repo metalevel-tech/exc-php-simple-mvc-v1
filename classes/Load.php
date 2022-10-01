@@ -1,6 +1,6 @@
 <?php
 /**
- * Load parts from  "includes/"
+ * Load parts from includes/*.php
  */
 
 class Load

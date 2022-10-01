@@ -1,7 +1,8 @@
 <?php
 /**
- * Routes generator.
+ * Routes generator, invoked by Routes.php
  */
+
 class Route
 {
     public static $valid_routes = [];

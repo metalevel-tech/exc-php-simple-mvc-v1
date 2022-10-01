@@ -1,6 +1,8 @@
 <?php
 /**
- * See also, https://www.php.net/manual/en/class.pdo.php#89019
+ * Connect and query the database, used in controllers/Posts.php
+ * 
+ * See also: https://www.php.net/manual/en/class.pdo.php#89019
  * --> class Database extends POD { ... }
  */
 

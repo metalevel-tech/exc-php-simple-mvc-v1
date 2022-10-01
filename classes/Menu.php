@@ -1,6 +1,8 @@
 <?php
 /**
- * Menu generator.
+ * Menu generator
+ *  Menu::addItem(),  invoked by Routes.php
+ *  Menu::getItems(), invoked by includes/Menu.php
  */
 
 class Menu
