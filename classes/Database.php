@@ -8,21 +8,23 @@
 
 class Database
 {
-    public static $dbName = 'sample_db';
-    public static $dbChar = 'utf8';
-    private static $dbDriver = 'mysql';
-    private static $dbHost = 'localhost';
-    private static $dbUser = 'sample_db_admin';
-    private static $dbPswd = 'use-strong-password';
+    public static $db = [
+        "name" => "sample_db",
+        "user" => "sample_db_admin",
+        "pswd" => "use-strong-password",
+        "driver" => "mysql",
+        "host" => "localhost",
+        "char-set" => "utf8"
+    ];
 
     private static function connect()
     {
-        $settings = self::$dbDriver . ":";
-        $settings .= "host=" . self::$dbHost . ";";
-        $settings .= "dbname=" . self::$dbName . ";";
-        $settings .= "charset=" . self::$dbChar;
+        $settings = self::$db["driver"] .":";
+        $settings .= "host=". self::$db["host"] .";";
+        $settings .= "dbname=". self::$db["name"] .";";
+        $settings .= "charset=". self::$db["char-set"];
 
-        $pdo = new PDO($settings, self::$dbUser, self::$dbPswd);
+        $pdo = new PDO($settings, self::$db["user"], self::$db["pswd"]);
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;

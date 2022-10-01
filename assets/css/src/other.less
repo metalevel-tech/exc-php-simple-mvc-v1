@@ -1,0 +1,51 @@
+@mode: none;
+
+@desktop-xl: ~"(min-width: 1920px)";
+@desktop-l: ~"(max-width: 1400px)";
+@desktop: ~"(max-width: 1024px)";
+@tablet: ~"(max-width: 768px)";
+@phone: ~"(max-width: 480px)";
+@smallphone: ~"(max-width: 320px)";
+
+@mobile-menu: ~"(max-width:930px)";
+@mobile-menu: ~"(max-width:1040px)"; //new links
+
+input[type="text"] {
+  /* Remove First */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.font-size(@font-size) {
+  font-size: @font-size;
+
+  @media @desktop {
+    font-size: @font-size*0.9;
+  }
+  @media @tablet {
+    font-size: @font-size*0.8;
+  }
+  @media @phone {
+    font-size: @font-size*0.7;
+  }
+}
+
+.font-size-min-tablet(@font-size) {
+    font-size: @font-size;
+  
+    @media @desktop {
+      font-size: @font-size*0.9;
+    }
+    @media @tablet {
+      font-size: @font-size*0.8;
+    }
+  }
+  
+  .font-size-min-desktop(@font-size) {
+    font-size: @font-size;
+  
+    @media @desktop {
+      font-size: @font-size*0.9;
+    }
+  }

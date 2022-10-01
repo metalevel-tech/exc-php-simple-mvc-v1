@@ -11,7 +11,12 @@
         "ImageMagic",
         "fcgi",
         "htaccess",
-        "MySQL"
+        "MySQL",
+        "Ubuntu",
+        "Debian",
+        "json",
+        "lessc",
+        "uglifyjs"
     ],
     "cSpell.words": [
         "autoload",
@@ -26,7 +31,12 @@
         "MySQL",
         "Pswd",
         "W3School",
-        "YouTube"
+        "YouTube",
+        "Ubuntu",
+        "Debian",
+        "json",
+        "lessc",
+        "uglifyjs"
     ],
     "spellright.language": [
         "en-US-10-1.",

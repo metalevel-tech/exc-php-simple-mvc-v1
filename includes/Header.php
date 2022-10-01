@@ -14,6 +14,7 @@
     <div id="main-menu">
         <?php
         Load::resource('Menu');
+        echo "\n";  // Pretty HTML output
         ?>
     </div>
     <div id="body-content">

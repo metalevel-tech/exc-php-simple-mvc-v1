@@ -15,7 +15,7 @@ The branches are named `Stage-X...` and they represent the consequential steps t
 
 ## Create database
 
-In the directory [`resources`](resources/) are available two manual like SQL files. We can suppress the comments and use them as SQL scrips to create or remove the `sample_db` MySQL database used in this tutorial.
+In the directory [`assets/sql`](assets/sql/) are available two manual like SQL files. We can suppress the comments and use them as SQL scrips to create or remove the `sample_db` MySQL database used in this tutorial.
 
 ```bash
 sed -r '/^(-- |$)/d' sample_db_create.sql | sudo mysql
@@ -63,3 +63,47 @@ Explanations, solutions, references:
 * Stack Overflow: [How to fix: Cannot redeclare spl_autoload_register()?](https://stackoverflow.com/a/59049684/6543935)
 * Stack Overflow: [How to use spl_autoload() instead of __autoload()](https://stackoverflow.com/a/10687888/6543935)
 * W3School: [PHP `include` and `require` Statements](https://www.w3schools.com/php/php_includes.asp)
+
+## Install and setup Node.js and NPM
+
+Install the latest version on Ubuntu/Debian machine.
+
+```bash
+sudo apt install npm
+sudo npm install n
+sudo n latest
+```
+
+Open a new terminal window and check the version.
+
+```bash
+node -v
+npm -v
+```
+
+Initialize the project. (The following steps are already done. So skip to the next section.)
+
+```bash
+npm init
+npm i babel-cli babel-core babel-preset-env uglify-js
+npm i less less-plugin-clean-css
+npm i onchange
+```
+
+The above few commands will create `package.json`, install few NPM packages. Once this is done, no new instance you just need to to run the following command and everything will installed and ready to use (a new file `package-lock.json` and directory `node_modules` will appear; the `--save-dev` option is intentionally not used).
+
+```bash
+npm install
+cp node_modules/less/dist/less.min.js assets/lessc/
+```
+
+[`package.json`](package.json) provide few "scrips". You can use them from the CLI in the following way.
+
+```bash
+npm run babel     # assets/js/src/*.es6.js -> assets/js/dist/*.es5.js
+npm run uglifyjs  # assets/js/dist/*.js    -> assets/js/dist/*.min.js
+npm run lessc     # assets/css/src/*.less  -> assets/css/dist/*.min.css
+npm run build     # run all commands above
+npm run clean     # remove the content of the 'dist/' directories
+npm run watch     # run the 'build' command by the help of 'onchange' when the files in 'src/' are changed.
+```
