@@ -9,6 +9,7 @@ This is the final stage of the tutorial ["Simple MVC in PHP"](../master/README.m
 ```bash
 https://php-mvc.example.com/posts
 ```
+
 ```text
 +-----+--------+------------------------+------------------------------------------+
 | Id  | Title  | Description            | Content                                  |
