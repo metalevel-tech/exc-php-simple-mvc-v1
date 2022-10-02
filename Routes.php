@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Route::set(
  *      $uri,       // URI of the page, same as the $uri in Menu::AddItem()

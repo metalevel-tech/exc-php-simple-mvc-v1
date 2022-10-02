@@ -24,7 +24,7 @@ class Route
 
     public static function debug()
     {
-        echo "<b>Routes.php</b>";
+        echo "<p><b><code>Routes.php</code></b></p>";
         echo "<pre style='border: 1px solid lightgray; padding: 1em;'>";
 
         foreach (self::$valid_routes as $key => $value) {

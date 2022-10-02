@@ -22,6 +22,5 @@ require_once("Routes.php");
 /**
  * Debug options
  */
-ResourceLoader::debug();
-Route::debug();
-?>
+// ResourceLoader::debug();
+// Route::debug();

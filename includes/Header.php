@@ -9,9 +9,8 @@
     <title>PHP Simple MVC</title>
     
     <?php
-    // <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    // echo "<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />";
     ResourceLoader::hook('head');
-    ResourceLoader::support('less');
     ?>
 </head>
 

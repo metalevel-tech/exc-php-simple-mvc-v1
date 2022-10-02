@@ -56,8 +56,17 @@
 
 class ResourceLoader
 {
-    public static $available_resources = [];
+    # This is our accumulator of resource definitions
+    private static $available_resources = [];
 
+    # Options: 
+    #   'less' - when there is invoked .less resource this will be changed to 'true'
+    #            @self::enableLess(), @self::add()
+    private static $options = [
+        "less" => false
+    ];
+
+    # Add a resource to the list, see Resources.php
     public static function add(
         $hook,
         $resource,
@@ -69,6 +78,8 @@ class ResourceLoader
         $route = [],
         $kind = "auto"
     ) {
+        if (!$active) return;
+
         # Defaults: $kind
         if ($kind = "auto") {
             $file = explode("?", $resource);
@@ -78,8 +89,14 @@ class ResourceLoader
 
             if ($ext == "js") {
                 $kind = "script";
-            } elseif ($ext == "css" || $ext == "less") {
+            } elseif ($ext == "css") {
                 $kind = "style";
+            } elseif ($ext == "less") {
+                $kind = "style";
+                if (!self::$options["less"]) {
+                    self::$options["less"] = true;
+                    self::enableLess();
+                }
             } else {
                 $kind = "link"; // fallback for resources as href="https://fonts.googleapis.com"
             }
@@ -121,18 +138,34 @@ class ResourceLoader
         ];
     }
 
-    private static function readFile($resource)
+    # Output the resources by a selected hook, see includes/{Header,Footer}.php
+    public static function hook($hook)
     {
-        $file = explode("?", $resource);
-        $file = reset($file);
+        $hooked_resources = [];
 
-        $fileRead = fopen($file, "r") or die("Unable to open file '$file'!");
-        $fileContent = fread($fileRead, filesize($file));
-        fclose($fileRead);
+        foreach (self::$available_resources as $resource) {
+            if (
+                ($resource["hook"] == $hook && $resource["active"]) &&
+                (!$resource["route"] || in_array($_GET["url"], $resource["route"]))
+            ) {
+                $hooked_resources[] = $resource;
+            }
+        }
 
-        return $fileContent;
+        // Sort the array     
+        usort($hooked_resources, function ($a, $b) {
+            return ($a["priority"] <= $b["priority"]) ? -1 : 1;
+        });
+
+        foreach ($hooked_resources as $resource) {
+            self::tagGenerator($resource);
+        }
     }
 
+    # Generate the HTML tags
+    #   @self::hook()
+    #   $resource["kind"] = "style"|"script"|"link"
+    #   $$resource["embed"] = true|false
     private static function tagGenerator($resource = [])
     {
         if ($resource["kind"] == "style" && $resource["embed"]) {
@@ -158,36 +191,35 @@ class ResourceLoader
         }
     }
 
-    public static function hook($hook)
+    # Read the content of the local resources,
+    # when we want to embed them in the HTML code,
+    #   @self::tagGenerator()
+    private static function readFile($resource)
     {
-        $hooked_resources = [];
+        $file = explode("?", $resource);
+        $file = reset($file);
 
-        foreach (self::$available_resources as $resource) {
-            if (
-                ($resource["hook"] == $hook && $resource["active"]) &&
-                (!$resource["route"] || in_array($_GET["url"], $resource["route"]))
-            ) {
-                $hooked_resources[] = $resource;
-            }
-        }
+        $fileRead = fopen($file, "r") or die("Unable to open file '$file'!");
+        $fileContent = fread($fileRead, filesize($file));
+        fclose($fileRead);
 
-        // Sort the array     
-        usort($hooked_resources, function ($a, $b) {
-            return ($a["priority"] <= $b["priority"]) ? -1 : 1;
-        });
-
-        foreach ($hooked_resources as $resource) {
-            self::tagGenerator($resource);
-        }
+        return $fileContent;
     }
 
-    public static function support($language)
+    public static function enableLess()
     {
+        // echo '<h1>LESS</h1>';
+        // if (self::$options["less"]) {
+            self::add("head", "assets/vendor/less.conf.js",  embed: true, priority: 10001);
+            self::add("head", "assets/vendor/less.min.js",   embed: false, priority: 10002);
+            self::add("head", "assets/vendor/less.watch.js", embed: true, priority: 10003);
+        // }
     }
 
     public static function debug()
     {
-        echo "<b>ResourceLoader.php</b>";
+        echo "<p><b><code>ResourceLoader.php</code></b><br />";
+        echo "<code>Note the not \$active resources are not managed.</code></p>";
         foreach (self::$available_resources as $resource) {
             echo "<pre style='border: 1px solid lightgray; padding: 1em;'>";
             foreach ($resource as $key => $value) {
