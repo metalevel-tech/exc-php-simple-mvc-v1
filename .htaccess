@@ -1,6 +1,6 @@
 # Redirect all requests to index.php, except fome static resources
 Options -MultiViews
 
-RewriteCond %{REQUEST_URI} !^/(favicon.ico).*$
+RewriteCond %{REQUEST_URI} !^/.*\.(ico|css|js|less|png|jpg|jpeg|webp|webm|mp4|mp3pdf|avi|flv|mov|wmv|wav|m4v|ogg|aac|eot|ttf|otf|woff|woff2|svg)$
 RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]
 # Redirect all requests to index.php - section end

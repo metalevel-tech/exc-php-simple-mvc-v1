@@ -7,14 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>PHP Simple MVC</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    
+    <?php
+    // <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    ResourceLoader::hook('head');
+    ResourceLoader::support('less');
+    ?>
 </head>
 
 <body>
-    <div id="main-menu">
-        <?php
-        Load::resource('Menu');
-        echo "\n";  // Pretty HTML output
-        ?>
+    <?php
+    ResourceLoader::hook('body');
+    ?>
+    <div id="header-content">
+        <div id="main-menu">
+            <?php
+            Req::resource('Menu');
+            echo "\n";  // Pretty HTML output
+            ?>
+        </div>
     </div>
     <div id="body-content">

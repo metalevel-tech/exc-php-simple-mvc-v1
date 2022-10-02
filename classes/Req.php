@@ -1,9 +1,9 @@
 <?php
 /**
- * Load parts from includes/*.php
+ * Req - require/load parts from includes/*.php
  */
 
-class Load
+class Req
 {
     public static function resource($name)
     {

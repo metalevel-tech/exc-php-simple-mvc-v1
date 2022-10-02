@@ -1,13 +1,14 @@
 <?php
 /**
- * This is the base controller
+ * This is the base controller,
+ * all controllers/*.php inherit this class.
  */
 
 class Controller extends Database
 {
     public static function createView($view)
     {
-        Load::resource('Header');
+        Req::resource('Header');
 
         if (file_exists("views/$view.php")) {
             require_once("views/$view.php");
@@ -15,6 +16,6 @@ class Controller extends Database
             require_once("views/HTTP404.php");
         }
 
-        Load::resource('Footer');
+        Req::resource('Footer');
     }
 }
