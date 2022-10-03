@@ -179,7 +179,7 @@ class ResourceLoader
             echo "<script type='{$resource["type"]}'>\n" . self::readFile($resource["resource"]) . "\n</script>";
         }
         if ($resource["kind"] == "script" && !$resource["embed"]) {
-            echo "<script src='{$resource["resource"]}' type='{$resource["type"]}'></script>\n";
+            echo "<script src='{$resource["resource"]}' type='{$resource["type"]}' {$resource["options"]}></script>\n";
         }
 
         if ($resource["kind"] == "link" && !$resource["embed"]) {
