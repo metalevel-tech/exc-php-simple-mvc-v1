@@ -56,17 +56,22 @@
 
 class ResourceLoader
 {
-    # This is our accumulator of resource definitions
+    // This is our accumulator of resource definitions
     private static $available_resources = [];
 
-    # Options: 
-    #   'less' - when there is invoked .less resource this will be changed to 'true'
-    #            @self::enableLess(), @self::add()
+    /**
+     * Options: 
+     *   'less' - when there is invoked .less resource this will be changed to 'true'
+     * 
+     *    @self::addLessSupport(), @self::add()
+     */
     private static $options = [
         "less" => false
     ];
 
-    # Add a resource to the list, see Resources.php
+    /**
+     *  Add a resource to the list, see Resources.php
+     */
     public static function add(
         $hook,
         $resource,
@@ -80,7 +85,7 @@ class ResourceLoader
     ) {
         if (!$active) return;
 
-        # Defaults: $kind
+        // Defaults: $kind
         if ($kind = "auto") {
             $file = explode("?", $resource);
             $file = reset($file);
@@ -95,14 +100,14 @@ class ResourceLoader
                 $kind = "style";
                 if (!self::$options["less"]) {
                     self::$options["less"] = true;
-                    self::enableLess();
+                    self::addLessSupport();
                 }
             } else {
                 $kind = "link"; // fallback for resources as href="https://fonts.googleapis.com"
             }
         }
 
-        # Defaults: $type
+        // Defaults: $type
         if ($kind == "script" && $type == "default") {
             $type = "text/javascript";
         } elseif ($kind == "style" && $type == "default") {
@@ -111,7 +116,7 @@ class ResourceLoader
             $type = false;
         }
 
-        # Defaults: $options
+        // Defaults: $options
         if ($kind == "script" && $options == "default") {
             $options = "defer";
         } elseif ($kind == "style" && $options == "default") {
@@ -120,7 +125,7 @@ class ResourceLoader
             $options = "defer crossorigin";
         }
 
-        # Override the 'embed' option if the resource is web address
+        // Override the 'embed' option if the resource is web address
         if (preg_match("/^http/", $resource)) {
             $embed = false;
         }
@@ -138,7 +143,7 @@ class ResourceLoader
         ];
     }
 
-    # Output the resources by a selected hook, see includes/{Header,Footer}.php
+    // Output the resources by a selected hook, see includes/{Header,Footer}.php
     public static function hook($hook)
     {
         $hooked_resources = [];
@@ -162,10 +167,14 @@ class ResourceLoader
         }
     }
 
-    # Generate the HTML tags
-    #   @self::hook()
-    #   $resource["kind"] = "style"|"script"|"link"
-    #   $$resource["embed"] = true|false
+    /**
+     * Generate the HTML tags
+     * 
+     *   @self::hook()
+     * 
+     *   $resource["kind"] = "style"|"script"|"link"
+     *   $$resource["embed"] = true|false
+     */
     private static function tagGenerator($resource = [])
     {
         if ($resource["kind"] == "style" && $resource["embed"]) {
@@ -176,7 +185,7 @@ class ResourceLoader
         }
 
         if ($resource["kind"] == "script" && $resource["embed"]) {
-            echo "<script type='{$resource["type"]}'>\n" . self::readFile($resource["resource"]) . "\n</script>";
+            echo "<script type='{$resource["type"]}'>\n" . self::readFile($resource["resource"]) . "\n</script>\n";
         }
         if ($resource["kind"] == "script" && !$resource["embed"]) {
             echo "<script src='{$resource["resource"]}' type='{$resource["type"]}' {$resource["options"]}></script>\n";
@@ -191,9 +200,12 @@ class ResourceLoader
         }
     }
 
-    # Read the content of the local resources,
-    # when we want to embed them in the HTML code,
-    #   @self::tagGenerator()
+    /**
+     * Read the content of the local resources,
+     * when we want to embed them in the HTML code.
+     * 
+     *   @self::tagGenerator()
+     */
     private static function readFile($resource)
     {
         $file = explode("?", $resource);
@@ -206,16 +218,24 @@ class ResourceLoader
         return $fileContent;
     }
 
-    public static function enableLess()
+    /**
+     * Add online support for .less files
+     * 
+     *   @self::add()
+     */
+    public static function addLessSupport()
     {
-        // echo '<h1>LESS</h1>';
         // if (self::$options["less"]) {
             self::add("head", "assets/vendor/less.conf.js",  embed: true,  priority: 10001);
-            self::add("head", "assets/vendor/less.min.js",   embed: false, priority: 10002);
+            self::add("head", "assets/vendor/less.min.js",   embed: false, priority: 10002, options: false);
             self::add("head", "assets/vendor/less.watch.js", embed: true,  priority: 10003);
         // }
     }
 
+    /**
+     * Output debug information,
+     * should be pushed to the servers log instead...
+     */
     public static function debug()
     {
         echo "<p><b><code>ResourceLoader.php</code></b><br />";

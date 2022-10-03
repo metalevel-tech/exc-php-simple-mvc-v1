@@ -31,7 +31,8 @@
     "defer",
     "toplevel",
     "regenerator",
-    "href"
+    "href",
+    "fontawesome"
   ],
   "cSpell.words": [
     "Metalevel",
@@ -66,7 +67,8 @@
     "defer",
     "toplevel",
     "regenerator",
-    "href"
+    "href",
+    "fontawesome"
   ],
   "spellright.language": ["en-US-10-1.", "en-US-9-0."],
   "spellright.documentTypes": ["markdown", "latex", "plaintext"],
