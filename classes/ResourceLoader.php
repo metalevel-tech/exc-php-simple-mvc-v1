@@ -179,7 +179,7 @@ class ResourceLoader
             echo "<script type='{$resource["type"]}'>\n" . self::readFile($resource["resource"]) . "\n</script>";
         }
         if ($resource["kind"] == "script" && !$resource["embed"]) {
-            echo "<script src='{$resource["resource"]}' type='{$resource["type"]}'></script>\n";
+            echo "<script src='{$resource["resource"]}' type='{$resource["type"]}' {$resource["options"]}></script>\n";
         }
 
         if ($resource["kind"] == "link" && !$resource["embed"]) {
@@ -210,9 +210,9 @@ class ResourceLoader
     {
         // echo '<h1>LESS</h1>';
         // if (self::$options["less"]) {
-            self::add("head", "assets/vendor/less.conf.js",  embed: true, priority: 10001);
+            self::add("head", "assets/vendor/less.conf.js",  embed: true,  priority: 10001);
             self::add("head", "assets/vendor/less.min.js",   embed: false, priority: 10002);
-            self::add("head", "assets/vendor/less.watch.js", embed: true, priority: 10003);
+            self::add("head", "assets/vendor/less.watch.js", embed: true,  priority: 10003);
         // }
     }
 

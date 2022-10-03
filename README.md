@@ -4,10 +4,6 @@ Sample example of PHP MVC. It is like a tutorial and follows the tutorial ["Simp
 
 The branches are named `Stage-X...` and they represent the consequential steps that lead to the final state. In the following sections of this read-me are provided the reverences about certain things I've researched while studying this technique.
 
-## ResourceLoader
-
-* W3S at GitHub: [Clarify preload with relation to async and defer?](https://github.com/w3c/resource-hints/issues/13)
-
 ## References
 
 * howCode at YouTube: [Simple MVC in PHP (1/4) - Routing](https://youtu.be/DpbUqJcch0Y)
@@ -16,6 +12,17 @@ The branches are named `Stage-X...` and they represent the consequential steps t
 * howCode at YouTube: [Simple MVC in PHP (4/4) - Databases](https://youtu.be/DpbUqJcch0Y)
 * howCode at GitHub: [how - helper classes](https://github.com/howCodeORG/how)
 * PHP Documentation: [The PDO class](https://www.php.net/manual/en/class.pdo.php#89019). Represents a connection between PHP and a database server.
+
+## AJAX Menu References
+
+* Stack Overflow: [__How do I modify the URL without reloading the page?__](https://stackoverflow.com/a/3354511/6543935)
+* Stack Overflow: [Get local href value from anchor (a) tag](https://stackoverflow.com/a/15439946/6543935)
+* Metalevel.tech on GitHub: [Extended example of `Promise` `fetch`, `async` and `await`](https://github.com/metalevel-tech/js-promises-typewriter/blob/master/app/public/main-two-speed-params.js#L451)
+* Babel on GitHub: [Uncaught Reference Error: regenerator Runtime is not defined](https://github.com/babel/babel-loader/issues/484) Solution: `babel --plugins @babel/plugin-transform-regenerator ...`
+
+## ResourceLoader References
+
+* W3S at GitHub: [Clarify `preload` with relation to `async` and `defer`?](https://github.com/w3c/resource-hints/issues/13)
 
 ## Create database
 
@@ -28,7 +35,7 @@ sed -r '/^(-- |$)/d' sample_db_remove.sql | sudo mysql
 
 According to the documentation these comments shouldn't make a problem, but in my case the do.
 
-Explanations, solutions, references:
+### References
 
 * [MySQL Documentation](https://dev.mysql.com/doc/)
 * MySQL 8.0 Reference Manual: [Creating and Using a Database](https://dev.mysql.com/doc/refman/8.0/en/database-use.html)
@@ -40,7 +47,7 @@ Explanations, solutions, references:
 
 The example provided in the beginning of the tutorial [Simple MVC in PHP (1/4) - Routing](https://youtu.be/DpbUqJcch0Y) is incomplete, because sometimes we need to change some other options and also to serve some static files and avoid unnecessary additional processing. In the first section of the current [.htaccess](./.htaccess) file some of these requirements are covered.
 
-Explanations, solutions, references:
+### References
 
 * Stack Overflow [Note about the `-MultiViews` option](https://stackoverflow.com/a/20685686/6543935)
 
@@ -60,7 +67,7 @@ spl_autoload_register(function($class) {
 });
 ```
 
-Explanations, solutions, references:
+### References
 
 * PHP Manual: [Autoloading Classes](https://www.php.net/manual/en/language.oop5.autoload.php)
 * PHP Manual: [SPL Functions > spl_autoload_register](https://www.php.net/manual/en/function.spl-autoload-register.php)
@@ -83,7 +90,8 @@ Initialize the project and fetch the necessary packages. (The following steps ar
 
 ```bash
 npm init
-npm i babel-cli babel-core babel-preset-env uglify-js
+npm i @babel/cli @babel/core @babel/plugin-transform-regenerator @babel/plugin-transform-spread @babel/preset-env
+npm i uglify-js
 npm i less less-plugin-clean-css
 npm i onchange
 npm i jquery
@@ -93,7 +101,7 @@ The above few commands will create `package.json`, install few NPM packages. Onc
 
 ```bash
 npm install
-cp node_modules/less/dist/*.min.js assets/vendor/
+cp node_modules/less/dist/* assets/vendor/
 cp node_modules/jquery/dist/*.min.js assets/vendor/
 ```
 
@@ -108,7 +116,7 @@ npm run build     # run all commands above
 npm run watch     # run the 'build' command by the help of 'onchange' when the files in 'src/' are changed.
 ```
 
-Explanations, solutions, references:
+### References
 
 * Less: [Using Less.js](https://lesscss.org/usage/#command-line-usage)
 * Babel: [Usage Guide](https://babeljs.io/docs/en/usage/)

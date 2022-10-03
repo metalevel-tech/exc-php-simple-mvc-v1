@@ -18,20 +18,20 @@
  */
 
 Menu::addItem(0, "Home", "home");
-Menu::addItem(1, "About", "about-us");
-Menu::addItem(2, "Contacts", "contact-us");
-Menu::addItem(3, "Blog", "posts");
+Menu::addItem(1, "About", "about");
+Menu::addItem(2, "Contacts", "contacts");
+Menu::addItem(3, "Blog", "blog");
 
-Route::set("about-us", function () {
+Route::set("about", function () {
     AboutUs::CreateView("AboutUs");
 });
 
-Route::set("contact-us", function () {
+Route::set("contacts", function () {
     ContactUs::CreateView("ContactUs");
 });
 
-Route::set("posts", function () {
-    Posts::CreateView("Posts");
+Route::set("blog", function () {
+    Blog::CreateView("Blog");
 });
 
 Route::set("home", function () {

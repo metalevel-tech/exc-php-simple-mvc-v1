@@ -26,13 +26,15 @@ class Menu
             return ($a["item_id"] <= $b["item_id"]) ? -1 : 1;
         });
 
-        // Add classes 'home-item'
+        // Parse the selected item
         foreach (self::$menu_items as $key => $item) {
+            // Add classes "home-item"
             if ($item["item_id"] == 0) {
                 self::$menu_items[$key]["class"][] = "home-item";
             }
             
-            if ($_GET['url'] == $item["uri"]) {
+            // Add classes "selected-item"
+            if ($_GET["url"] == $item["uri"]) {
                 self::$menu_items[$key]["class"][] = "selected-item";
             }
         }

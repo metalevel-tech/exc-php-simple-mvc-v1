@@ -34,20 +34,31 @@ ResourceLoader::add( # LESS for dev tests
 
 ResourceLoader::add( # jQuery added
     "head",
-    "assets/vendor/jquery.slim.min.js?v=$random",
+    "assets/vendor/jquery.slim.min.js?v=$version",
     priority: 20,
     embed: false,
-    active: true,
-    options: "rel=defer"
+    active: false,
+    options: "async"
     // type="text/css" is auto detected
 );
 
-ResourceLoader::add( # The main JavaScript file
-    "footer",
-    "assets/js/dist/main.min.js?v=$random",
-    priority: 20,
+// ResourceLoader::add( # JavaScript: main
+//     "head",
+//     "assets/js/dist/main.min.js?v=$version",
+//     priority: 20,
+//     embed: false,
+//     active: true,
+//     options: "defer"
+//     // type="text/css" is auto detected
+// );
+
+ResourceLoader::add( # JavaScript: main-menu 
+    "head",
+    "assets/js/dist/main-menu.min.js?v=$random",
+    // "assets/js/src/main-menu.js?v=$random",
+    priority: 5,
     embed: false,
     active: true,
-    options: "rel=defer"
+    options: "defer"
     // type="text/css" is auto detected
 );

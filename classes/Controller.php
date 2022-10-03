@@ -8,7 +8,7 @@ class Controller extends Database
 {
     public static function createView($view)
     {
-        Req::resource('Header');
+        if (!isset($_GET["content"])) Req::resource("Header");
 
         if (file_exists("views/$view.php")) {
             require_once("views/$view.php");
@@ -16,6 +16,6 @@ class Controller extends Database
             require_once("views/HTTP404.php");
         }
 
-        Req::resource('Footer');
+        if (!isset($_GET["content"])) Req::resource("Footer");
     }
 }

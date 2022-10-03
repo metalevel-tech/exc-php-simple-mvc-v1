@@ -1,5 +1,44 @@
 @bodyBg: yellowgreen;
+@bodyBgHome: yellowgreen;
+@bodyBgAbout: orange;
+@bodyBgContacts: cyan;
+@bodyBgBlog: yellow;
 
 body {
   background-color: @bodyBg;
+}
+
+body.home {
+  background-color: @bodyBgHome;
+}
+
+body.about {
+  background-color: @bodyBgAbout;
+}
+
+body.contacts {
+  background-color: @bodyBgContacts;
+}
+
+body.blog {
+  background-color: @bodyBgBlog;
+}
+
+ul.main-menu-list {
+  text-align: center;
+  padding: 0;
+}
+
+li.menu-item {
+  display: inline-block;
+}
+
+li.menu-item:hover {
+  background-color: rgba(128, 128, 128, 0.336);
+}
+
+li.menu-item a {
+  display: block;
+  padding: 0.4em 1em;
+  text-decoration: none;
 }

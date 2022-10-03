@@ -1,5 +1,6 @@
 {
   "spellchecker.ignoreWordsList": [
+    "Metalevel",
     "YouTube",
     "howCode",
     "GitHub",
@@ -28,9 +29,12 @@
     "preload",
     "async",
     "defer",
-    "toplevel"
+    "toplevel",
+    "regenerator",
+    "href"
   ],
   "cSpell.words": [
+    "Metalevel",
     "autoload",
     "Autoload",
     "Autoloading",
@@ -60,7 +64,9 @@
     "preload",
     "async",
     "defer",
-    "toplevel"
+    "toplevel",
+    "regenerator",
+    "href"
   ],
   "spellright.language": ["en-US-10-1.", "en-US-9-0."],
   "spellright.documentTypes": ["markdown", "latex", "plaintext"],
