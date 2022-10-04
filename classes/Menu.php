@@ -9,12 +9,13 @@ class Menu
 {
     public static $menu_items = [];
 
-    public static function addItem($item_id, $label, $uri)
+    public static function addItem($item_id, $uri, $label, $label_mobile = null)
     {
         self::$menu_items[] = [
             "item_id" => $item_id,
-            "label" => $label,
             "uri" => $uri,
+            "label" => $label,
+            "label_mobile" => $label_mobile ?? $label,
             "class" => ["menu-item"]
         ];
     }

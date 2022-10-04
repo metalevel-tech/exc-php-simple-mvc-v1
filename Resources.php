@@ -12,11 +12,24 @@ ResourceLoader::add( # Favicon.ico
     options: "rel=\"shortcut icon\""
 );
 
-ResourceLoader::add( # Favicon.ico
+ResourceLoader::add( # Normalize.css
     "head",
-    "assets/vendor/fontawesome/css/all.css?v=$version",
+    "assets/css/dist/normalize.min.css?v=$version",
+    // "assets/css/src/normalize.css?v=$version",
+    active: true,
+    priority: 4,
+    embed: true,
+    options: "rel=\"stylesheet\""
+    // type="text/css" is auto detected
+    // , route:["posts", "about-us"]
+);
+
+ResourceLoader::add( # FontAwesome
+"head",
+"assets/vendor/fontawesome/css/all.css?v=$version",
     active: true,
     priority: 5,
+    embed: false,
     options: "rel=\"stylesheet\""
     // type="text/css" is auto detected
     // , route:["posts", "about-us"]
@@ -64,8 +77,8 @@ ResourceLoader::add( # JavaScript: main
 
 ResourceLoader::add( # JavaScript: main-menu 
     "head",
-    "assets/js/dist/main-menu.min.js?v=$version",
-    // "assets/js/src/main-menu.js?v=$random",
+    // "assets/js/dist/main-menu.min.js?v=$version",
+    "assets/js/src/main-menu.js?v=$random",
     priority: 5,
     embed: false,
     active: true,

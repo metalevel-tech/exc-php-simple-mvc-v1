@@ -13,8 +13,8 @@
          */
         
         // Use for JS data-sets
-        $output = "\t\t<li class='". implode(" ", $item["class"]) ."'>";
-        $output .= "<a href='/". $item["uri"] ."'>";
+        $output = "\t\t<li class=\"menu-item-wrapper\">";
+        $output .= "<a href=\"/". $item["uri"] ."\" class=\"". implode(" ", $item["class"]) ."\">";
         $output .= "<span>". $item["label"] ."</span>";
         $output .= "</a></li>\n\t";
 

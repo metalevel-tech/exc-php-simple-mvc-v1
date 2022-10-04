@@ -17,10 +17,10 @@
  * );
  */
 
-Menu::addItem(0, "Home", "home");
-Menu::addItem(1, "About", "about");
-Menu::addItem(2, "Contacts", "contacts");
-Menu::addItem(3, "Blog", "blog");
+Menu::addItem(0, "home", "Home");
+Menu::addItem(1, "about", "About");
+Menu::addItem(2, "contacts", "Contacts");
+Menu::addItem(3, "blog", "Blog");
 
 Route::set("about", function () {
     AboutUs::CreateView("AboutUs");
@@ -34,10 +34,11 @@ Route::set("blog", function () {
     Blog::CreateView("Blog");
 });
 
-Route::set("home", function () {
+Route::set("index.php", function () {
     Home::CreateView("Home");
 });
-Route::set("index.php", function () {
+
+Route::set("home", function () {
     Home::CreateView("Home");
 });
 

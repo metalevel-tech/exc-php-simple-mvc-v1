@@ -1,4 +1,3 @@
-
 <?php
 
 /**
@@ -12,8 +11,9 @@
  *   > "head"   - the resource is loaded at the end of the <head> tag via includes/Header.php
  *   > "body"   - the resource is loaded at the begging of the <body> tag via includes/Header.php
  *   > "footer" - the resource is loaded at the end of the <body> tag via includes/Footer.php
- *   You can define your own Hooks and by placing `ResourceLoader::hook('hook-name');` somewhere in the code,
- *   Then attach resources to them by `ResourceLoader::add('hook-name');` within `Resources.php`.
+ * 
+ *   You can define your own Hooks and by placing `ResourceLoader::hook("hook-name");` somewhere in the code,
+ *   Then attach resources to them by `ResourceLoader::add("hook-name");` within `Resources.php`.
  * 
  * $resource
  *   In this parameter should be defined the resource file to be loaded with its full path.
@@ -126,7 +126,7 @@ class ResourceLoader
         }
 
         // Override the 'embed' option if the resource is web address
-        if (preg_match("/^http/", $resource)) {
+        if (preg_match("/^(http|\/\/)/", $resource)) {
             $embed = false;
         }
 
@@ -173,29 +173,32 @@ class ResourceLoader
      *   @self::hook()
      * 
      *   $resource["kind"] = "style"|"script"|"link"
-     *   $$resource["embed"] = true|false
+     *   $resource["embed"] = true|false
      */
     private static function tagGenerator($resource = [])
     {
+        // Handle styles
         if ($resource["kind"] == "style" && $resource["embed"]) {
-            echo "<style type='{$resource["type"]}'>\n" . self::readFile($resource["resource"]) . "\n</style>";
+            echo "<style type=\"{$resource["type"]}\">/* {$resource["resource"]} */\n" . self::readFile($resource["resource"]) . "\n\t</style>\n\t";
         }
         if ($resource["kind"] == "style" && !$resource["embed"]) {
-            echo "<link href='{$resource["resource"]}' type='{$resource["type"]}' {$resource["options"]} />\n";
+            echo "<link href=\"{$resource["resource"]}\" type=\"{$resource["type"]}\" {$resource["options"]} />\n\t";
         }
 
+        // Handle scripts
         if ($resource["kind"] == "script" && $resource["embed"]) {
-            echo "<script type='{$resource["type"]}'>\n" . self::readFile($resource["resource"]) . "\n</script>\n";
+            echo "<script type=\"{$resource["type"]}\">/* {$resource["resource"]} */\n" . self::readFile($resource["resource"]) . "\n\t</script>\n\t";
         }
         if ($resource["kind"] == "script" && !$resource["embed"]) {
-            echo "<script src='{$resource["resource"]}' type='{$resource["type"]}' {$resource["options"]}></script>\n";
+            echo "<script src=\"{$resource["resource"]}\" type=\"{$resource["type"]}\" {$resource["options"]}></script>\n\t";
         }
 
+        // Handle other resources
         if ($resource["kind"] == "link" && !$resource["embed"]) {
             if ($resource["type"]) {
-                echo "<link href='{$resource["resource"]}' type='{$resource["type"]}' {$resource["options"]} />\n";
+                echo "<link href=\"{$resource["resource"]}\" type=\"{$resource["type"]}\" {$resource["options"]} />\n\t";
             } else {
-                echo "<link href='{$resource["resource"]}' {$resource["options"]} />\n";
+                echo "<link href=\"{$resource["resource"]}\" {$resource["options"]} />\n\t";
             }
         }
     }
@@ -226,9 +229,9 @@ class ResourceLoader
     public static function addLessSupport()
     {
         // if (self::$options["less"]) {
-            self::add("head", "assets/vendor/less.conf.js",  embed: true,  priority: 10001);
-            self::add("head", "assets/vendor/less.min.js",   embed: false, priority: 10002, options: false);
-            self::add("head", "assets/vendor/less.watch.js", embed: true,  priority: 10003);
+        self::add("head", "assets/vendor/less.conf.js",  embed: true,  priority: 10001);
+        self::add("head", "assets/vendor/less.min.js",   embed: false, priority: 10002, options: false);
+        self::add("head", "assets/vendor/less.watch.js", embed: true,  priority: 10003);
         // }
     }
 

@@ -35,7 +35,7 @@ sed -r '/^(-- |$)/d' sample_db_remove.sql | sudo mysql
 
 According to the documentation these comments shouldn't make a problem, but in my case the do.
 
-### References
+### References about MySQL
 
 * [MySQL Documentation](https://dev.mysql.com/doc/)
 * MySQL 8.0 Reference Manual: [Creating and Using a Database](https://dev.mysql.com/doc/refman/8.0/en/database-use.html)
@@ -47,7 +47,7 @@ According to the documentation these comments shouldn't make a problem, but in m
 
 The example provided in the beginning of the tutorial [Simple MVC in PHP (1/4) - Routing](https://youtu.be/DpbUqJcch0Y) is incomplete, because sometimes we need to change some other options and also to serve some static files and avoid unnecessary additional processing. In the first section of the current [.htaccess](./.htaccess) file some of these requirements are covered.
 
-### References
+### References about .htaccess
 
 * Stack Overflow [Note about the `-MultiViews` option](https://stackoverflow.com/a/20685686/6543935)
 
@@ -67,7 +67,7 @@ spl_autoload_register(function($class) {
 });
 ```
 
-### References
+### References about `spl_autoload_register()`
 
 * PHP Manual: [Autoloading Classes](https://www.php.net/manual/en/language.oop5.autoload.php)
 * PHP Manual: [SPL Functions > spl_autoload_register](https://www.php.net/manual/en/function.spl-autoload-register.php)
@@ -94,15 +94,16 @@ npm i @babel/cli @babel/core @babel/plugin-transform-regenerator @babel/plugin-t
 npm i uglify-js
 npm i less less-plugin-clean-css
 npm i onchange
-npm i jquery
+npm i jquery jquery.easing
 ```
 
 The above few commands will create `package.json`, install few NPM packages. Once this is done, no new instance you just need to to run the following command and everything will installed and ready to use (a new file `package-lock.json` and directory `node_modules` will appear; the `--save-dev` option is intentionally not used).
 
 ```bash
 npm install
-cp node_modules/less/dist/* assets/vendor/
-cp node_modules/jquery/dist/*.min.js assets/vendor/
+cp -v node_modules/less/dist/* assets/vendor/
+cp -v node_modules/jquery/dist/*.min.js assets/vendor/
+cp -v node_modules/jquery.easing/jquery.*.js assets/vendor/
 ```
 
 [`package.json`](package.json) provide few "scrips". You can use them from the CLI in the following way.
@@ -116,7 +117,7 @@ npm run build     # run all commands above
 npm run watch     # run the 'build' command by the help of 'onchange' when the files in 'src/' are changed.
 ```
 
-### References
+### References about Node.js and NPM
 
 * Less: [Using Less.js](https://lesscss.org/usage/#command-line-usage)
 * Babel: [Usage Guide](https://babeljs.io/docs/en/usage/)
