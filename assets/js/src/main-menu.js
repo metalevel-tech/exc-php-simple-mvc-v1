@@ -19,7 +19,7 @@ function hrefToClass(element) {
 // Process single menu element
 const changeMenuElementFunction = async (e) => {
     e.preventDefault();
-    const item = e.currentTarget;
+    const item = e.currentTarget.parentNode.querySelector("a");
 
     if (item.classList.contains("selected-item")) {
         return;
@@ -34,9 +34,10 @@ const changeMenuElementFunction = async (e) => {
         // Change the <div id="body-content"> content
         nodes.content.innerHTML = html;
 
-        // Change the relevant body class, https://stackoverflow.com/a/33121880/6543935
+        // Change the relevant body class
         let bodyClassList = [...document.body.classList];
 
+        //  https://stackoverflow.com/a/33121880/6543935
         for (const bodyClass of [...new Set(bodyClasses)]) {
             bodyClassList = bodyClassList.filter(value => bodyClass != value);
         }
@@ -45,12 +46,12 @@ const changeMenuElementFunction = async (e) => {
         document.body.className = bodyClassList.join(" ").replace(/index.php\s*/, "");
 
         // Find the "current active" menu item and remove the class
-        [...nodes.menuItems]
-            .find(item => item.classList.contains("selected-item"))
-            .classList.toggle("selected-item");
-
-        // Add the class to the newly activated (new current) menu item
-        item.classList.toggle("selected-item");
+        nodes.menuItems.forEach((node) => {
+            node.classList.remove("selected-item");
+            if (node.href === item.href) {
+                node.classList.add("selected-item");
+            }
+        });
 
         // Change the URI
         window.history.pushState({
