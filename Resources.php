@@ -1,7 +1,7 @@
 <?php
 # Generate random number and invalidate some resources from here
 $random = rand(1, 10000);
-$version = 1;
+$version = $random;
 
 ResourceLoader::add( # Favicon.ico
     "head",
@@ -67,7 +67,8 @@ ResourceLoader::add( # jQuery added
 
 ResourceLoader::add( # JavaScript: main
     "head",
-    "assets/js/dist/main.min.js?v=$version",
+    "assets/js/src/main.js?v=$version",
+    // "assets/js/dist/main.min.js?v=$version",
     priority: 20,
     embed: false,
     active: true,

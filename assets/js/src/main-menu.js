@@ -7,7 +7,7 @@
 const nodes = {
     content: document.getElementById("body-content"),
     menu: document.getElementById("main-menu"),
-    menuItems: document.querySelectorAll("a.menu-item"),
+    menuItems: document.querySelectorAll("a.main-menu-item"),
 };
 
 const bodyClasses = [];
@@ -20,6 +20,7 @@ function hrefToClass(element) {
 const changeMenuElementFunction = async (e) => {
     e.preventDefault();
     const item = e.currentTarget.parentNode.querySelector("a");
+    // const item = e.target;
 
     if (item.classList.contains("selected-item")) {
         return;
