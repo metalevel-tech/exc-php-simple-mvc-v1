@@ -33,7 +33,7 @@ sed -r '/^(-- |$)/d' sample_db_create.sql | sudo mysql
 sed -r '/^(-- |$)/d' sample_db_remove.sql | sudo mysql
 ```
 
-According to the documentation these comments shouldn't make a problem, but in my case the do.
+According to the documentation these comments shouldn't make a problem, but in my case they do.
 
 ### References about MySQL
 
