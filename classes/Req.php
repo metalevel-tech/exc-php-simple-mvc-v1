@@ -9,7 +9,10 @@ class Req
     // Require a file from "views/" or "includes/"
     public static function resource($resource, $paths = ["views", "includes"])
     {
+        
         $file = self::findRecursive($resource, $paths);
+        // echo $resource . "<br>";
+        // echo $file . "<br>";
         self::requireFile($file);
     }
     
@@ -33,7 +36,7 @@ class Req
         if (file_exists($file)) {
             require($file);
         } else {
-            echo "Error: File not found: $resource";
+            echo "Error: File not found: $file";
         }
     }
 

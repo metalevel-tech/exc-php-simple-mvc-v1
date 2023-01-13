@@ -9,8 +9,8 @@
 class Database
 {
     public static $db = [
-        "name" => "sample_db",
-        "user" => "sample_db_admin",
+        "name" => "php_mvc_v1_db",
+        "user" => "php_mvc_v1_admin",
         "pswd" => "use-strong-password",
         "driver" => "mysql",
         "host" => "localhost",

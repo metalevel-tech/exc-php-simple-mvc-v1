@@ -14,7 +14,7 @@
     ?>
 </head>
 
-<body class="<?php echo $_GET["url"] ?>">
+<body class="<?php echo $_GET["uri"] ?>">
     <?php
     ResourceLoader::hook('body');
     ?>

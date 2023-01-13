@@ -1,29 +1,29 @@
 -- sudo mysql   # or: mysql -u'root' -p
 
-CREATE DATABASE sample_db;
+CREATE DATABASE php_mvc_v1_db;
 
 -- SHOW DATABASES;
 -- SHOW SCHEMAS;
 
-CREATE USER 'sample_db_admin'@'localhost' 
+CREATE USER 'php_mvc_v1_admin'@'localhost' 
     IDENTIFIED WITH mysql_native_password BY 'use-strong-password';
 
-GRANT USAGE ON *.* TO 'sample_db_admin'@'localhost';
+GRANT USAGE ON *.* TO 'php_mvc_v1_admin'@'localhost';
 
-ALTER USER 'sample_db_admin'@'localhost'
+ALTER USER 'php_mvc_v1_admin'@'localhost'
     REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 
     MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
 
-GRANT ALL PRIVILEGES ON `sample_db`.* 
-    TO 'sample_db_admin'@'localhost' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON `php_mvc_v1_db`.* 
+    TO 'php_mvc_v1_admin'@'localhost' WITH GRANT OPTION;
 
 FLUSH PRIVILEGES;
 
 -- SELECT User FROM mysql.user;
--- SELECT user,host,plugin FROM mysql.user WHERE user = 'sample_db_admin';
--- SHOW GRANTS FOR 'sample_db_admin'@'localhost';
+-- SELECT user,host,plugin FROM mysql.user WHERE user = 'php_mvc_v1_admin';
+-- SHOW GRANTS FOR 'php_mvc_v1_admin'@'localhost';
 
-USE sample_db;
+USE php_mvc_v1_db;
 
 CREATE TABLE posts (
     post_id INT AUTO_INCREMENT,

@@ -12,7 +12,7 @@ class Route
     {
         self::$valid_routes[] = $route;
 
-        if ($_GET["url"] == $route) {
+        if ($_GET["uri"] == $route) {
             $function->__invoke();
         }
     }

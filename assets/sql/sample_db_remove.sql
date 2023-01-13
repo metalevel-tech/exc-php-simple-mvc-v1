@@ -1,3 +1,3 @@
-DROP DATABASE sample_db;
-DROP USER 'sample_db_admin'@'localhost';
+DROP DATABASE php_mvc_v1_db;
+DROP USER 'php_mvc_v1_admin'@'localhost';
 -- FLUSH PRIVILEGES;

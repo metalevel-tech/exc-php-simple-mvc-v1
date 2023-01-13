@@ -1,5 +1,5 @@
 /**
- * This is the AJAX script for the main menu.
+ * This is the SPA script for the main menu.
  * It replaces the content of <div id="body-content">,
  * without page reload.
  */

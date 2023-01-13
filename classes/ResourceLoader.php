@@ -151,7 +151,7 @@ class ResourceLoader
         foreach (self::$available_resources as $resource) {
             if (
                 ($resource["hook"] == $hook && $resource["active"]) &&
-                (!$resource["route"] || in_array($_GET["url"], $resource["route"]))
+                (!$resource["route"] || in_array($_GET["uri"], $resource["route"]))
             ) {
                 $hooked_resources[] = $resource;
             }

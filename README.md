@@ -13,7 +13,7 @@ The branches are named `Stage-X...` and they represent the consequential steps t
 * howCode at GitHub: [how - helper classes](https://github.com/howCodeORG/how)
 * PHP Documentation: [The PDO class](https://www.php.net/manual/en/class.pdo.php#89019). Represents a connection between PHP and a database server.
 
-## AJAX Menu References
+## SPA Menu References
 
 * Stack Overflow: [__How do I modify the URL without reloading the page?__](https://stackoverflow.com/a/3354511/6543935)
 * Stack Overflow: [Get local href value from anchor (a) tag](https://stackoverflow.com/a/15439946/6543935)
@@ -33,7 +33,7 @@ sed -r '/^(-- |$)/d' sample_db_create.sql | sudo mysql
 sed -r '/^(-- |$)/d' sample_db_remove.sql | sudo mysql
 ```
 
-According to the documentation these comments shouldn't make a problem, but in my case they do.
+According to the documentation these comments shouldn't make a problem, but in my case the do.
 
 ### References about MySQL
 

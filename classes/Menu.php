@@ -35,7 +35,7 @@ class Menu
             }
             
             // Add classes "selected-item"
-            if ($_GET["url"] == $item["uri"]) {
+            if ($_GET["uri"] == $item["uri"]) {
                 self::$menu_items[$key]["class"][] = "selected-item";
             }
         }
